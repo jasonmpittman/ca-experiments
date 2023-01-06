@@ -26,13 +26,24 @@ def decimal_to_binary(n):
 def binary_to_decimal(b):
     return int(b,2)
 
-# initialize the row (i.e., the rule)
+def evolve_cell(rule, row, cell):
+    new_row = 0
+
+    return new_row
+
+#get the rule from the user
 rule_input = int(input("Enter a rule as a three digit integer: ")) #over 255 grows the row
 rule = decimal_to_binary(rule_input)
 
 row = np.fromiter(rule, dtype=int)
 
+# reverse the array because binary reads right to left and the ca will read left to right
+row = row[::-1]
+
 print(row)
+
+# initialize the row 
+grid = np.array([0 0 0 1 0 0 0])
 
 # compute cell changes for the neighborhoods
 
