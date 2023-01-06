@@ -26,6 +26,11 @@ def decimal_to_binary(n):
 def binary_to_decimal(b):
     return int(b,2)
 
+def get_rule(left_neighbor, cell, right_neighbor, rule):
+    index = int(left_neighbor + cell + right_neighbor)
+    
+    return rule[index]
+
 def evolve_cell(rule, row, cell):
     new_row = 0
 
@@ -42,10 +47,14 @@ row = row[::-1]
 
 print(row)
 
-# initialize the row 
-grid = np.array([0 0 0 1 0 0 0])
+# initialize the row per Wolfram
+grid = np.array([0,0,0,1,0,0,0,0])
+print(grid)
 
+r = get_rule(grid[3], grid[4], grid[5], rule)
+print(r)
 # compute cell changes for the neighborhoods
+
 
 # step forward in T
 
